@@ -1,25 +1,5 @@
- bool isNotify) {
-    uint32_t data0 = pData[0] | (pData[1] << 8) | (pData[2] << 16) | (pData[3] << 24);
-    /*
-    Serial.print("Notify callback for characteristic ");
-    Serial.print(pBLERemoteCharacteristic->getUUID().toString().c_str());
-    Serial.print(" of data length ");
-    Serial.println(length);
-    */
-    Serial.print("data: ");
-    Serial.println(data0);
-    a++;
-    Serial.print("a = ");
-    Serial.println(a);
+처음엔 esp 끼리 연결을 시도 (0826, 0828)
 
-    if(a == 20){
-      esp_sleep_enable_timer_wakeup(1 * 1000000);
-      esp_deep_sleep_start();
-      }
-}
+멀티커넥트 까지 성공하였으나 client에 파이어베이스 코드를 합치려 했으나 스캐치 메모리 부족으로 하지 못함
 
-이부분이 핵심
-
-여기서 client에 파이어베이스 코드를 합치려 했으나 스캐치 메모리 부족으로 하지 못함
-
-그래서 client를 라즈베리파이로 변경
+코드 최적화를 결국 하지 못해 client를 라즈베리파이로 변경(aa2, bea)
